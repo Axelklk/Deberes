@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <stack>
 #include <string>
@@ -20,6 +19,17 @@ int prioridad(char op) {
 bool esOperador(char c) {
     return c == '+' || c == '-' ||
            c == '*' || c == '/' || c == '^';
+}
+
+// Nueva función: Cuenta la cantidad de operadores aritméticos en la expresión
+int contarOperadores(const string& expresion) {
+    int contador = 0;
+    for (char c : expresion) {
+        if (esOperador(c)) {
+            contador++;
+        }
+    }
+    return contador;
 }
 
 // Convierte una expresion infija a postfija
@@ -175,7 +185,6 @@ double evaluarPostfija(string postfija) {
     return pila.top();
 }
 
-
 int main() {
     int opcion;
     string expresion;
@@ -188,7 +197,8 @@ int main() {
         cout << "2. Infija a prefija\n";
         cout << "3. Evaluar expresion numerica\n";
         cout << "4. Mostrar ambas notaciones\n";
-        cout << "5. Salir\n";
+        cout << "5. Contar operadores\n"; // Opción integrada
+        cout << "6. Salir\n";             // Opción de salida desplazada
         cout << "Seleccione una opcion: ";
 
         if (!(cin >> opcion)) {
@@ -196,9 +206,9 @@ int main() {
             break;
         }
 
-        if (opcion == 5) break;
+        if (opcion == 6) break;
 
-        if (opcion < 1 || opcion > 5) {
+        if (opcion < 1 || opcion > 6) {
             cout << "Opcion no valida.\n";
             continue;
         }
@@ -229,9 +239,14 @@ int main() {
                          << postfijaAPrefija(postfija) << "\n";
                     cout << "Postfija: " << postfija << "\n";
                     break;
+
+                case 5:
+                    cout << "Cantidad de operadores encontrados: " 
+                         << contarOperadores(expresion) << "\n";
+                    break;
             }
 
-            // Mostrar el resultado numerico en todas las opciones
+            // Mostrar el resultado numerico en todas las opciones (se mantiene el comportamiento original)
             cout << "Resultado: "
                  << evaluarPostfija(postfija) << "\n";
         }
