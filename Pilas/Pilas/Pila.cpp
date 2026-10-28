@@ -81,4 +81,17 @@ bool Pila::buscar(const std::string &cedula) {
   }
   std::cout<<"Persona con la cedula: " << cedula << " no encontrada" << std::endl;
   return false;
+  
+}
+// metodo para obtener el tamanio
+int Pila::sizePila() {
+    int contador = 0;
+    Nodo* actual = this->tope;
+    
+    while (actual != nullptr) {
+        contador++;
+        actual = actual->getSiguiente();
+    }
+    
+    return contador;
 }

@@ -38,4 +38,6 @@ public:
   bool buscar(const std::string &cedula) override;
   // metodo imprimir
   void imprimir() override;
+  // metodo para obtener el tamanio
+  int sizePila() override;
 };

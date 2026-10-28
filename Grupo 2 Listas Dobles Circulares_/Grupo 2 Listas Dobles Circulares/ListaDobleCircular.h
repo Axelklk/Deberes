@@ -21,6 +21,7 @@ public:
     Nodo<T>* buscar(T dato);
     void eliminar(T dato);
     void imprimir();
+    T obtenerEnPosicion(int pos);
 
 private:
     Nodo<T>* cabeza;
@@ -187,6 +188,23 @@ void ListaDobleCircular<T>::imprimir()
     } while (actual != cabeza);
 
     cout << endl;
+}
+template <typename T>
+T ListaDobleCircular<T>::obtenerEnPosicion(int pos)
+{
+    // Verificamos que la posición exista dentro de la lista
+    if (pos < 0 || pos >= tamanio) {
+        cout << "Error: Posicion fuera de limites." << endl;
+        return T(); // Retorna un valor por defecto (0 para int, "" para string)
+    }
+
+    Nodo<T>* actual = cabeza;
+    // Avanzamos nodo por nodo hasta llegar a la posición deseada
+    for (int i = 0; i < pos; i++) {
+        actual = actual->getSiguiente();
+    }
+
+    return actual->getDato();
 }
 
 #endif

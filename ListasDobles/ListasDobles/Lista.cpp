@@ -105,3 +105,32 @@ ListaDoble::~ListaDoble() {
         delete temporal;
     }
 }
+void ListaDoble::invertir() {
+    // Si la lista esta vacia o solo tiene un elemento, no hay nada que invertir
+    if (cabeza == nullptr || cabeza == cola) {
+        return;
+    }
+
+    Nodo* actual = cabeza;
+    Nodo* temporal = nullptr;
+
+    // Recorrer la lista intercambiando los punteros de cada nodo
+    while (actual != nullptr) {
+        // Guardamos el nodo anterior temporalmente
+        temporal = actual->getAnterior();
+        
+        // Intercambiamos los punteros usando los setters y getters
+        actual->setAnterior(actual->getSiguiente());
+        actual->setSiguiente(temporal);
+
+        // Avanzamos al "siguiente" nodo original (que ahora esta guardado en "anterior" por el intercambio)
+        actual = actual->getAnterior();
+    }
+
+    // Intercambiamos los punteros cabeza y cola de la propia lista
+    temporal = cabeza;
+    cabeza = cola;
+    cola = temporal;
+
+    cout << "-> La lista ha sido invertida correctamente.\n";
+}

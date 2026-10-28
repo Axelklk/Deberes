@@ -37,4 +37,6 @@ int main() {
     }
     imprimir(frente);
     return 0;
+    int cantidad = contarElementos(frente);
+    cout << "La cola tiene " << cantidad << " elementos.\n";
 }

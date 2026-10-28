@@ -53,3 +53,15 @@ void imprimir(const Nodo* frente) {
     }
     cout << '\n';
 }
+
+int contarElementos(const Nodo* frente) {
+    int contador = 0;
+    const Nodo* actual = frente;
+    
+    while (actual != nullptr) {
+        contador++;
+        actual = actual->getSiguiente();
+    }
+    
+    return contador;
+}

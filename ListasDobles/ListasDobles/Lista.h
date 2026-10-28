@@ -21,6 +21,7 @@ public:
     void eliminar(string n);
     void imprimirAdelante();
     void imprimirAtras();
+    void invertir();
 };
 
 #endif

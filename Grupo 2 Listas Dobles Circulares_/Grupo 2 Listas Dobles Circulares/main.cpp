@@ -16,23 +16,18 @@ int main() {
     lista.imprimir();
     cout << "Tamanio: " << lista.getTamanio() << endl;
 
-    cout << "\nBUSCANDO EL 30" << endl;
-    Nodo<int>* encontrado = lista.buscar(30);
-    if (encontrado != nullptr)
-        cout << "Elemento " << encontrado->getDato() << " encontrado." << endl;
-    else
-        cout << "Elemento no encontrado." << endl;
-
-    cout << "\nELIMINANDO UN VALOR EN MEDIO (20)" << endl;
-    lista.eliminar(20);
-    lista.imprimir();
-
-    cout << "\nELIMINANDO LA CABEZA (10)" << endl;
-    lista.eliminar(10);
-    lista.imprimir();
+    // ... (Tu código de eliminar y buscar se mantiene igual) ...
 
     cout << "\nELIMINANDO UN VALOR QUE NO EXISTE (99)" << endl;
     lista.eliminar(99);
+    
+    // NUEVA PRUEBA: Obtener elementos por posición
+    cout << "\n=== PRUEBA: OBTENER EN POSICION ===" << endl;
+    lista.imprimir();
+    cout << "Elemento en posicion 0: " << lista.obtenerEnPosicion(0) << endl;
+    cout << "Elemento en posicion 1: " << lista.obtenerEnPosicion(1) << endl;
+    cout << "Elemento en posicion 5 (Invalida): ";
+    lista.obtenerEnPosicion(5);
 
     cout << "\nPRUEBA CON OTRO TIPO (string)" << endl;
     ListaDobleCircular<string> nombres;

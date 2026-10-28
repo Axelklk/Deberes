@@ -26,7 +26,8 @@ int main() {
     std::cout << "2. Imprimir" << std::endl;
     std::cout << "3. Buscar" << std::endl;
     std::cout << "4. Eliminar" << std::endl;
-    std::cout << "5. Salir" << std::endl;
+    std::cout << "5. Tamaño de la pila" << std::endl; 
+    std::cout << "6. Salir" << std::endl;             
 
     std::cout << "Ingrese una Opcion: " << std::endl;
     std::cin >> opcion;
@@ -64,16 +65,20 @@ switch (opcion) {
             obj1->desapilar();
             break;
 
-        case 5:
+        case 5: {
+            cout << "\nEl numero actual de elementos en la pila es: " << obj1->sizePila() << endl;
+            break;
+        }
+        case 6: {
             cout << "\nSaliendo del programa..." << endl;
             break;
-
+        }
         default:
             cout << "Opcion no valida." << endl;
             break;
         }
         cout << endl;
-    } while (opcion != 5);
+    } while (opcion != 6);
 
   delete (obj1);
   cout << "\nPrograma finalizado con exito.\n";
